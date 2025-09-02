@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Happy Birthday 🎂🎈</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to top right, #ffdde1, #ee9ca7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      h1 {
+        position: absolute;
+        top: 10%;
+        font-size: 3em;
+        text-align: center;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Cake */
+      .cake {
+        position: relative;
+        width: 220px;
+        height: 130px;
+        background: #ff4b5c;
+        border-radius: 15px 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .icing {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background: #ff9999;
+        border-radius: 15px 15px 0 0;
+        box-shadow: inset 0 -5px 0 #672525;
+      }
+
+      /* Cake toppings */
+      .topping {
+        position: absolute;
+        top: -15px;
+        width: 25px;
+        height: 20px;
+        border-radius: 50%;
+      }
+      .cherry {
+        background: red;
+        border: 2px solid #b30000;
+      }
+      .strawberry {
+        width: 30px;
+        height: 22px;
+        background: linear-gradient(to bottom, #ff4b5c, #b3002d);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        border-radius: 5px;
+      }
+      .leaf {
+        position: absolute;
+        top: -8px;
+        left: 5px;
+        width: 10px;
+        height: 8px;
+        background: green;
+        border-radius: 50%;
+      }
+
+      /* Candle = number 21 */
+      .candle {
+        position: fixed;
+        top: 235px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 60px;
+        font-weight: bold;
+        color: #f9e6e6;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        z-index: 2;
+      }
+
+      /* Flame */
+      .flame {
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25px;
+        height: 35px;
+        background: radial-gradient(
+          circle at 50% 50%,
+          #ffec85,
+          #ffae42,
+          #ff4b2b
+        );
+        border-radius: 50%;
+        animation: flicker 0.3s infinite alternate;
+        box-shadow: 0 0 20px rgba(255, 200, 0, 0.8);
+      }
+
+      @keyframes flicker {
+        0% {
+          transform: translateX(-50%) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-50%) scale(1.2);
+          opacity: 0.8;
+        }
+      }
+
+      /* Balloons */
+      .balloon {
+        position: absolute;
+        bottom: -150px;
+        width: 80px;
+        height: 100px;
+        background: red;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: float 10s infinite;
+      }
+
+      .balloon::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -20px;
+        width: 2px;
+        height: 40px;
+        background: #333;
+        transform: translateX(-50%);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-110vh) rotate(20deg);
+          opacity: 0;
+        }
+      }
+
+      /* Surprise Button */
+      #surprise {
+        position: absolute;
+        bottom: 10%;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        background: #fff;
+        color: #ff4b5c;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease;
+      }
+
+      #surprise:hover {
+        transform: scale(1.1);
+      }
+
+      #message {
+        position: absolute;
+        top: 70%;
+        font-size: 1.5em;
+        color: #fff;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+
+      /* Fireworks Canvas */
+      #fireworks {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎉 Happy 21st Birthday Nooooor 🎉</h1>
+
+    <!-- Cake + Candle -->
+    <div class="cake">
+      <div class="icing"></div>
+
+      <!-- Toppings -->
+      <div class="topping cherry" style="left: 20px"></div>
+      <div class="topping cherry" style="left: 90px"></div>
+      <div class="topping cherry" style="left: 160px"></div>
+
+      <div class="topping strawberry" style="left: 50px">
+        <div class="leaf"></div>
+      </div>
+      <div class="topping strawberry" style="left: 130px">
+        <div class="leaf"></div>
+      </div>
+
+      <!-- Candle -->
+      <div class="candle">
+        21
+        <div class="flame"></div>
+      </div>
+    </div>
+
+    <!-- Surprise Button & Message -->
+    <button id="surprise">Click here 💌</button>
+    <div id="message">
+      Wish you all the happiness in the world!<br />ya 8aybobaa 😂❤
+    </div>
+
+    <!-- Fireworks -->
+    <canvas id="fireworks"></canvas>
+
+    <!-- Background Music -->
+    <audio id="bg-music" autoplay loop>
+      <source src="tenderness.mp3" type="audio/mpeg" />
+      Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+      // Balloons
+      const colors = [
+        "#ff4b5c",
+        "#ffb347",
+        "#6dd5ed",
+        "#c06c84",
+        "#f67280",
+        "#355c7d",
+      ];
+      for (let i = 0; i < 20; i++) {
+        let balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.animationDuration = 5 + Math.random() * 5 + "s";
+        balloon.style.width = 50 + Math.random() * 40 + "px";
+        balloon.style.height = 70 + Math.random() * 50 + "px";
+        document.body.appendChild(balloon);
+      }
+
+      // Surprise Button Action
+      document
+        .getElementById("surprise")
+        .addEventListener("click", function () {
+          document.getElementById("message").style.opacity = 1;
+          this.style.display = "none";
+          setInterval(launchFireworks, 800);
+        });
+
+      // Fireworks
+      const canvas = document.getElementById("fireworks");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      function random(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      class Firework {
+        constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.particles = [];
+          for (let i = 0; i < 50; i++) {
+            this.particles.push({
+              x: x,
+              y: y,
+              angle: random(0, Math.PI * 2),
+              speed: random(2, 6),
+              radius: random(2, 4),
+              alpha: 1,
+            });
+          }
+        }
+        update() {
+          this.particles.forEach((p) => {
+            p.x += Math.cos(p.angle) * p.speed;
+            p.y += Math.sin(p.angle) * p.speed;
+            p.alpha -= 0.02;
+          });
+          this.particles = this.particles.filter((p) => p.alpha > 0);
+        }
+        draw(ctx) {
+          this.particles.forEach((p) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color},${p.alpha})`;
+            ctx.fill();
+          });
+        }
+      }
+
+      let fireworks = [];
+      function launchFireworks() {
+        fireworks.push(
+          new Firework(
+            random(100, canvas.width - 100),
+            random(100, canvas.height / 2),
+            "255,0,0"
+          )
+        );
+        fireworks.push(
+          new Firework(
+            random(100, canvas.width - 100),
+            random(100, canvas.height / 2),
+            "0,255,0"
+          )
+        );
+        fireworks.push(
+          new Firework(
+            random(100, canvas.width - 100),
+            random(100, canvas.height / 2),
+            "0,0,255"
+          )
+        );
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        fireworks.forEach((fw) => {
+          fw.update();
+          fw.draw(ctx);
+        });
+        fireworks = fireworks.filter((fw) => fw.particles.length > 0);
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      // Fix autoplay issues
+      document.body.addEventListener(
+        "click",
+        () => {
+          const music = document.getElementById("bg-music");
+          if (music.paused) music.play();
+        },
+        { once: true }
+      );
+    </script>
+  </body>
+</html>
