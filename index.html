@@ -17,12 +17,13 @@
 
       h1 {
         position: absolute;
-        top: 10%;
-        font-size: 3em;
+        top: 5%;
+        font-size: 2em;
         text-align: center;
         color: #fff;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         animation: pulse 2s infinite;
+        width: 100%;
       }
 
       @keyframes pulse {
@@ -91,25 +92,26 @@
 
       /* Candle = number 21 */
       .candle {
-        position: fixed;
-        top: 235px;
+        position: absolute;
+        top: -60px; /* فوق التورتة */
         left: 50%;
         transform: translateX(-50%);
-        font-size: 60px;
+        font-size: 50px;
         font-weight: bold;
         color: #f9e6e6;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         z-index: 2;
+        text-align: center;
       }
 
       /* Flame */
       .flame {
         position: absolute;
-        top: -25px;
+        top: -40px;
         left: 50%;
         transform: translateX(-50%);
-        width: 25px;
-        height: 35px;
+        width: 20px;
+        height: 30px;
         background: radial-gradient(
           circle at 50% 50%,
           #ffec85,
@@ -188,11 +190,12 @@
       #message {
         position: absolute;
         top: 70%;
-        font-size: 1.5em;
+        font-size: 1.2em;
         color: #fff;
         text-align: center;
         opacity: 0;
         transition: opacity 1s ease;
+        padding: 0 10px;
       }
 
       /* Fireworks Canvas */
