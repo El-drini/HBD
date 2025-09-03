@@ -93,14 +93,14 @@
       /* Candle = number 21 */
       .candle {
         position: absolute;
-        bottom: 55%; /* يطلع فوق الكيك */
+        bottom: 55%;
         left: 50%;
         transform: translateX(-50%) translateY(-20px);
-        font-size: 40px; /* صغرت الرقم شوية عشان يبان */
+        font-size: 40px;
         font-weight: bold;
-        color: #222; /* غيرنا اللون لغامق عشان يبان فوق الكريمة */
+        color: #222;
         text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
-        z-index: 20; /* يخلي الشمعة فوق كل العناصر */
+        z-index: 20;
         text-align: center;
         @media (min-width: 768px) {
           bottom: 49%;
@@ -109,7 +109,7 @@
 
       .flame {
         position: absolute;
-        bottom: 100%; /* فوق الرقم */
+        bottom: 100%;
         left: 50%;
         transform: translateX(-50%) translateY(-10px);
         width: 18px;
@@ -123,7 +123,7 @@
         border-radius: 50%;
         animation: flicker 0.3s infinite alternate;
         box-shadow: 0 0 25px rgba(255, 200, 0, 0.9);
-        z-index: 21; /* فوق الرقم */
+        z-index: 21;
       }
 
       @keyframes flicker {
