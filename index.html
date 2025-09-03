@@ -93,25 +93,24 @@
       /* Candle = number 21 */
       .candle {
         position: absolute;
-        top: -60px; /* فوق التورتة */
+        bottom: 100%; /* يطلع فوق الكيك */
         left: 50%;
-        transform: translateX(-50%);
-        font-size: 50px;
+        transform: translateX(-50%) translateY(-20px);
+        font-size: 40px; /* صغرت الرقم شوية عشان يبان */
         font-weight: bold;
-        color: #f9e6e6;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-        z-index: 2;
+        color: #222; /* غيرنا اللون لغامق عشان يبان فوق الكريمة */
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+        z-index: 20; /* يخلي الشمعة فوق كل العناصر */
         text-align: center;
       }
 
-      /* Flame */
       .flame {
         position: absolute;
-        top: -40px;
+        bottom: 100%; /* فوق الرقم */
         left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 30px;
+        transform: translateX(-50%) translateY(-10px);
+        width: 18px;
+        height: 28px;
         background: radial-gradient(
           circle at 50% 50%,
           #ffec85,
@@ -120,7 +119,8 @@
         );
         border-radius: 50%;
         animation: flicker 0.3s infinite alternate;
-        box-shadow: 0 0 20px rgba(255, 200, 0, 0.8);
+        box-shadow: 0 0 25px rgba(255, 200, 0, 0.9);
+        z-index: 21; /* فوق الرقم */
       }
 
       @keyframes flicker {
@@ -168,12 +168,11 @@
         }
       }
 
-      /* Surprise Button */
       #surprise {
         position: absolute;
         bottom: 10%;
-        padding: 15px 30px;
-        font-size: 1.2em;
+        padding: 20px 40px;
+        font-size: 2.5em;
         background: #fff;
         color: #ff4b5c;
         border: none;
@@ -181,6 +180,7 @@
         cursor: pointer;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         transition: transform 0.2s ease;
+        z-index: 10;
       }
 
       #surprise:hover {
@@ -190,12 +190,13 @@
       #message {
         position: absolute;
         top: 70%;
-        font-size: 1.2em;
+        font-size: 2.5em;
         color: #fff;
         text-align: center;
         opacity: 0;
         transition: opacity 1s ease;
         padding: 0 10px;
+        z-index: 10;
       }
 
       /* Fireworks Canvas */
